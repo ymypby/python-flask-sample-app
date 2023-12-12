@@ -18,7 +18,7 @@ steps:
     working_directory: ./
     tag: v1.0.1
     dockerfile: Dockerfile
-    disable_push: false
+    disable_push: true
   MyUnitTests:
     title: Running Unit tests
     image: '${{MyAppDockerImage}}'
@@ -26,3 +26,12 @@ steps:
     commands: 
       - pip install pytest
       - pytest
+  MyPushStep:
+    title: Pushing to Docker Registry
+    type: push
+    stage: upload
+    tag: '${{CF_BRANCH}}'
+    candidate: '${{MyAppDockerImage}}'
+    image_name: lvpby/codefresh-dmo #Change kkapelon to your dockerhub username
+    registry: dockerhub # Name of your integration as was defined in the Registry screen
+      
