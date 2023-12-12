@@ -34,4 +34,4 @@ steps:
     tag: '${{CF_BRANCH}}'
     candidate: '${{MyAppDockerImage}}'
     image_name: lvpby/codefresh-dmo #Change kkapelon to your dockerhub username
-    registry: dockerhub # Name of your integration as was defined in the Registry screen
+    registry: lvpby # Name of your integration as was defined in the Registry screen
